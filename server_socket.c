@@ -54,8 +54,9 @@ int main()
             return 0;
         }
         printf("%s\n", buff);
+	memset(buff,0,sizeof(buff));
         strcpy(buff, "ok");
-        ret = send(client_socket, buff, sizeof(buff), 0);
+        ret = send(client_socket, buff, strlen(buff), 0);
         if (ret <= 0)
         {
             printf("send ok to client is fail");
