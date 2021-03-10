@@ -36,6 +36,7 @@ int main()
         printf("please input the string that you want to send to the remote server:");
         scanf("%s", buff);
         int ret = send(local_socket, buff, strlen(buff), 0); //发送数据
+	memset(buff,0,strlen(buff));
         if (ret <= 0)
         {
             printf("send message to server is fail!");
