@@ -27,6 +27,7 @@ int thread_send_message(void *argv)
             printf("send message %s:%d is successful!\n", inet_ntoa(local_client1->client_addr.sin_addr), ntohs(local_client1->client_addr.sin_port));
         }
     }
+    free(argv);
 }
 int thread_recv_message(void *argv)
 {
@@ -34,8 +35,9 @@ int thread_recv_message(void *argv)
     local_client *local_client1 = (local_client *)argv;
     while (recv(local_client1->client_socket, buffer, sizeof(buffer), 0) > 0)
     {
-        printf("recv from the client %s:%d---->%s\n", inet_ntoa(local_client1->client_addr.sin_addr), ntohs(local_client1->client_addr.sin_port),buffer);
+        printf("recv from the client %s:%d---->%s\n", inet_ntoa(local_client1->client_addr.sin_addr), ntohs(local_client1->client_addr.sin_port), buffer);
     }
+    free(argv);
 }
 int main(int argc, char **argv)
 {
