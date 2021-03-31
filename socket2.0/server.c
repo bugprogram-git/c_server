@@ -15,6 +15,7 @@ typedef struct
     int client_socket;
     struct sockaddr_in client_addr;
     char buffer[1024];
+    pthread_t thread_id;
 } local_client;
 int thread_recv_messge(void *argv)
 {
@@ -23,6 +24,8 @@ int thread_recv_messge(void *argv)
     {
         printf("recv from client %s:%d---->%s\n", inet_ntoa(local_client1->client_addr.sin_addr), ntohs(local_client1->client_addr.sin_port), local_client1->buffer);
     }
+    printf("client---%s:%d----->disconnected!\n", inet_ntoa(local_client1->client_addr.sin_addr), ntohs(local_client1->client_addr.sin_port));
+    free(argv);
 }
 int main(int argc, char **argv)
 {
@@ -55,8 +58,7 @@ int main(int argc, char **argv)
         if (local_client1->client_socket >= 0)
         {
             printf("connect the client %s:%d\n", inet_ntoa(local_client1->client_addr.sin_addr), ntohs(local_client1->client_addr.sin_port));
-            pthread_t *a = (pthread_t *)malloc(sizeof(pthread_t));
-            pthread_create(a, NULL, (void *)thread_recv_messge, (void *)local_client1);
+            pthread_create(local_client1->thread_id, NULL, (void *)thread_recv_messge, (void *)local_client1);
         }
     }
 }
