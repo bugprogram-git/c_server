@@ -58,7 +58,7 @@ int main(int argc, char **argv)
         if (local_client1->client_socket >= 0)
         {
             printf("connect the client %s:%d\n", inet_ntoa(local_client1->client_addr.sin_addr), ntohs(local_client1->client_addr.sin_port));
-            pthread_create(local_client1->thread_id, NULL, (void *)thread_recv_messge, (void *)local_client1);
+            pthread_create(&local_client1->thread_id, NULL, (void *)thread_recv_messge, (void *)local_client1);
         }
     }
 }
