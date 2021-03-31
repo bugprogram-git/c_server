@@ -51,7 +51,7 @@ int main(int argc, char **argv)
         printf("connect the server is fail!\n");
         return 0;
     }
-    printf("connected!!!\n");
+    printf("connected to server->%s:%d\n",inet_ntoa(local_client1.server_addr.sin_addr),ntohs(local_client1.server_addr.sin_port));
     pthread_t send_id, recv_id;
     pthread_create(&send_id, NULL, (void *)thread_send_message, (void *)&local_client1);
     pthread_create(&recv_id, NULL, (void *)thread_recv_message, (void *)&local_client1);
