@@ -26,7 +26,7 @@ int thread_send_file(void *argv)
     while (1)
     {
         char buffer[1024];
-        FILE *file = fopen("/home/arch/termin.jpg", "r");
+        FILE *file = fopen("/home/arch/index.html", "r");
         while (!feof(file))
         {
             fread(buffer, 1, sizeof(buffer), file);
