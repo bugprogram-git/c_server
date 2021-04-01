@@ -4,6 +4,7 @@
 #include <netinet/in.h>
 #include <arpa/inet.h>
 #include <pthread.h>
+int act_count = 0;
 typedef struct
 {
     int local_socket;
@@ -53,8 +54,10 @@ int main(int argc, char **argv)
     while (1)
     {
         printf("waiting the client connect....................\n");
+        printf("current activity client count--->%d\n", act_count);
         local_client *local_client1 = (local_client *)malloc(sizeof(local_client));
         local_client1->client_socket = accept(local_server1.local_socket, (struct sockaddr *)&local_client1->client_addr, &local_server1.len);
+        act_count++;
         if (local_client1->client_socket >= 0)
         {
             printf("connect the client %s:%d\n", inet_ntoa(local_client1->client_addr.sin_addr), ntohs(local_client1->client_addr.sin_port));
