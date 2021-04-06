@@ -51,11 +51,12 @@ int main(int argc, char **argv)
         printf("listen the local port is fail!");
         return 0;
     }
+    local_client *local_client1 = NULL;
     while (1)
     {
         printf("waiting the client connect....................\n");
         printf("current activity client count--->%d\n", act_count);
-        local_client *local_client1 = (local_client *)malloc(sizeof(local_client));
+        local_client1 = (local_client *)malloc(sizeof(local_client));
         local_client1->client_socket = accept(local_server1.local_socket, (struct sockaddr *)&local_client1->client_addr, &local_server1.len);
         act_count++;
         if (local_client1->client_socket >= 0)
