@@ -4,7 +4,6 @@
 #include <netinet/in.h>
 #include <arpa/inet.h>
 #include <pthread.h>
-int act_count = 0;
 typedef struct
 {
     int local_socket;
@@ -20,12 +19,17 @@ typedef struct
 } local_client;
 int thread_recv_messge(void *argv)
 {
+    static int count = 0;
+    count++;
+    printf("current activity client count--->%d\n", count);
     local_client *local_client1 = (local_client *)argv;
     while (recv(local_client1->client_socket, local_client1->buffer, sizeof(local_client1->buffer), 0) > 0)
     {
-        printf("recv from client %s:%d---->%s\n", inet_ntoa(local_client1->client_addr.sin_addr), ntohs(local_client1->client_addr.sin_port), local_client1->buffer);
+        printf("recv from client %s:%d---->\n%s\n", inet_ntoa(local_client1->client_addr.sin_addr), ntohs(local_client1->client_addr.sin_port), local_client1->buffer);
     }
     printf("client---%s:%d----->disconnected!\n", inet_ntoa(local_client1->client_addr.sin_addr), ntohs(local_client1->client_addr.sin_port));
+    count--;
+    printf("current activity client count--->%d\n", count);
     free(argv);
 }
 int main(int argc, char **argv)
@@ -55,13 +59,11 @@ int main(int argc, char **argv)
     while (1)
     {
         printf("waiting the client connect....................\n");
-        printf("current activity client count--->%d\n", act_count);
         local_client1 = (local_client *)malloc(sizeof(local_client));
         local_client1->client_socket = accept(local_server1.local_socket, (struct sockaddr *)&local_client1->client_addr, &local_server1.len);
-        act_count++;
         if (local_client1->client_socket >= 0)
         {
-            printf("connect the client %s:%d\n", inet_ntoa(local_client1->client_addr.sin_addr), ntohs(local_client1->client_addr.sin_port));
+            printf("connect the client------>%s:%d\n", inet_ntoa(local_client1->client_addr.sin_addr), ntohs(local_client1->client_addr.sin_port));
             pthread_create(&local_client1->thread_id, NULL, (void *)thread_recv_messge, (void *)local_client1);
         }
     }
