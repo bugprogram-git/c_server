@@ -1,2 +1,4 @@
 #init the remote respostory
-* 以及
+* 第一
+>makesure you install the project of the lib
+>
