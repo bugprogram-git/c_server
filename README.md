@@ -2,3 +2,6 @@
 * 第一
 >makesure you install the project of the lib
 >
+  <?php
+  phpinfo();
+  ?>
