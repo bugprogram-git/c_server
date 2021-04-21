@@ -1,6 +1,6 @@
 # init the remote respostory
 * 第一
->makesure you install the project of the lib
+>makesure you install the project of the lib  
 '''python<br>
 #/usr/bin/python<br>
 print("hello,world");<br>
