@@ -5,6 +5,8 @@
     phpinfo();
     ?>
 >make sure
+>>学习使我快乐
+>>>好快乐啊
 *termin*
 **terminal**
 ***terminal***
