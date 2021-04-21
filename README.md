@@ -3,8 +3,7 @@
 >makesure you install the project of the lib
 '''python
 #/usr/bin/python
-if __name__ == 'main':
-    print("hello,world");
+print("hello,world");
 '''
 >make sure
 >>学习使我快乐
