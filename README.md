@@ -5,3 +5,6 @@
     phpinfo();
     ?>
 >make sure
+*termin*
+**terminal**
+***terminal***
