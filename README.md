@@ -6,7 +6,7 @@
     ?>
 >make sure
 >>学习使我快乐
->>>好快乐啊
+>>>github.com.cn
 *termin*
 **terminal**
 ***terminal***
