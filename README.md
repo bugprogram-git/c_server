@@ -2,8 +2,8 @@
 * 第一
 >makesure you install the project of the lib
 '''python
-#/usr/bin/python
-print("hello,world");
+#/usr/bin/python<br>
+print("hello,world");<br>
 '''
 >make sure
 >>学习使我快乐
