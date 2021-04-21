@@ -2,9 +2,9 @@
 * 第一
 >makesure you install the project of the lib
 '''python
-    <?php
-    phpinfo();
-    ?>
+#/usr/bin/python
+if __name__ == 'main':
+    print("hello,world");
 '''
 >make sure
 >>学习使我快乐
