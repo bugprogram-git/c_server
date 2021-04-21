@@ -1,6 +1,8 @@
 #init the remote respostory
 * 第一
 >makesure you install the project of the lib
+'''php
   <?php
   phpinfo();
   ?>
+ '''
