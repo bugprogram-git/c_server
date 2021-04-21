@@ -11,4 +11,6 @@ print("hello,world");<br>
 duanluoyy  
 duanluoee   
 * duanluo3  
-[link]: http://www.google.com/ "Google"
+[link]: http://www.google.com/ "Google"  
+[google][1]
+[1]: https://google.com  
