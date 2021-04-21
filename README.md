@@ -14,3 +14,5 @@ duanluoee
 [link]: http://www.google.com/ "Google"  
 [google][1]
 [1]: https://google.com  
+[Google][]
+[Google]: http://www.google.com/ "Google"
