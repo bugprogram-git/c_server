@@ -1,18 +1,1 @@
-# init the remote respostory
-* 第一
->makesure you install the project of the lib  
-'''python<br>
-#/usr/bin/python<br>
-print("hello,world");<br>
-'''
->make sure
->>学习使我快乐
->>>github.com.cn    
-duanluoyy  
-duanluoee   
-* duanluo3  
-[link]: http://www.google.com/ "Google"  
-[google][1]
-[1]: https://google.com  
-[Google][]
-[Google]: http://www.google.com/ "Google"
+
